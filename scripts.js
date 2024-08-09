@@ -55,3 +55,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('nav ul');
+    const serviceItems = document.querySelectorAll('.service-item');
+    const modal = document.getElementById('modal');
+    const closeButton = document.getElementById('close-button');
+    const modalContent = document.getElementById('modal-content');
+
+    navToggle.addEventListener('click', function() {
+        navList.classList.toggle('show');
+    });
+
+    serviceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const content = this.getAttribute('data-service');
+            modalContent.textContent = content;
+            modal.style.display = 'block';
+        });
+    });
+
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
