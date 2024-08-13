@@ -55,6 +55,10 @@ const serviceItems = document.querySelectorAll('.service-item');
             // 在移动设备上点击导航链接后隐藏导航菜单
             if (window.innerWidth <= 768) {
                 nav.classList.remove('active');
+window.scrollTo({
+                top: targetSection.offsetTop - 80, // 调整偏移量以确保导航栏不会遮挡内容
+                behavior: 'smooth' // 平滑滚动
+            });
             }
         });
     });
